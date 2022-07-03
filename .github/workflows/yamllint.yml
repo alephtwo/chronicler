@@ -1,0 +1,12 @@
+---
+name: YAML Lint
+on: [push]  # yamllint disable-line rule:truthy
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install yamllint
+        run: sudo apt -y install yamllint
+      - name: Run yamllint
+        run: yamllint .
